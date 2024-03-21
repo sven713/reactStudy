@@ -23,11 +23,16 @@
 
     <script type="text/babel">
 
+        const idVar = 'title11'
+        const contentVar = 'jsx111语法'
+
         //1创建虚拟dom
         const VDOM = (
             <h1 className='firstClass'>
-                <span id='title' style={{'color':'yellow','fontSize':'10px'}}>jsx语法</span>
+                <span id={idVar.toUpperCase()} style={{color:'blue','fontSize':'20px'}}>{contentVar}</span>
                 <input/>
+                <good>88888</good>
+
             </h1>
 
             
@@ -36,10 +41,15 @@
         //2渲染虚拟dom
         ReactDOM.render(VDOM, document.getElementById('test'))
 
+        // 1定义虚拟dom,不要写引号 ``
+        // 2标签中混入js变量, 表达式 ,要用{}
         // 3样式类名 className
         // 4内联样式, style={{key: value}}
         // 5只有一个根标签
-        // 6
+        // 6标签必须闭合
+        // 7标签首字母
+        //   1) 小写字母开头,对应html标签,找不到报错
+        //   2) 大写字母开头,找组件,找不到报错
 
     </script>
 
