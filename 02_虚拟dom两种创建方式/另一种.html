@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>标题1</title>
+</head>
+
+
+<body>
+<!-- 容器 -->
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        //1创建虚拟dom
+        const VDOM = React.createElement('h1',{id:'title'},React.createElement('span',{id:'sfdsaf'},'复杂的'))
+        //2渲染虚拟dom
+        ReactDOM.render(VDOM, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+</html>
+
