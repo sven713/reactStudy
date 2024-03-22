@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>js class复习</title>
+</head>
+
+<style>
+    /* .firstClass {
+        background-color: red;
+    } */
+</style>
+
+
+<body>
+<!-- 容器 -->
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+       class Preson {
+        constructor(name, age){
+            this.name = name
+            this.age = age
+        }
+
+        speak(){
+            console.log(`我的名字是:${this.name}`, `我的年龄:${this.age}`)
+        }
+
+       }
+
+       class Student extends Preson{
+        constructor(name, age, grade){
+            super(name, age)
+            this.grade = grade
+        }
+
+        speak(){
+            console.log(`学生名字${this.name}`,`学生年龄${this.age}`,`学生年级${this.grade}`)
+        }
+       }
+
+       const p1 = new Preson('张三','22')
+       p1.speak()
+
+       const s1 = new Student('李四','11','高一')
+       s1.speak()
+
+    </script>
+
+
+</body>
+</html>
+
