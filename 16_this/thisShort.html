@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>class component</title>
+</head>
+
+<style>
+    /* .firstClass {
+        background-color: red;
+    } */
+</style>
+
+
+<body>
+<!-- 容器 -->
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+       class MyComponent extends React.Component {
+        
+
+        state = {
+            isHot:false,
+                wind:'微风'
+        }
+
+
+        render(){
+            console.log(this)
+            const {isHot,wind} = this.state
+            return <h1 onClick={this.test}>11今天天气{isHot ? '很热' : '凉爽'},{wind}</h1>
+        }
+
+        test = ()=>{
+            this.setState({
+                isHot: !this.state.isHot
+            })
+        }
+
+       }
+
+       ReactDOM.render(<MyComponent/>, document.getElementById('test'))
+
+      
+
+    </script>
+
+
+</body>
+</html>
+
