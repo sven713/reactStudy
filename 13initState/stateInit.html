@@ -36,13 +36,16 @@
         render(){
             console.log(this)
             const {isHot} = this.state
-            return <h1>今天天气{isHot ? '很热' : '凉1爽'}</h1>
+            return <h1 onClick={textClick}>今天天气{isHot ? '很热' : '凉1爽'}</h1>
         }
 
        }
 
        ReactDOM.render(<MyComponent/>, document.getElementById('test'))
 
+       function textClick(){
+        console.log('文案点击')
+       }
       
 
     </script>
