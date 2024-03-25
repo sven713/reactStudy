@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>class component</title>
+</head>
+
+<style>
+    /* .firstClass {
+        background-color: red;
+    } */
+</style>
+
+
+<body>
+<!-- 容器 -->
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+       let arr = [1,2,3,4]
+
+       let result = arr.reduce((sum, value)=>{
+        sum += value
+        return sum
+       },0)
+
+       console.log(result)
+
+       let brr = ['小明','小红','消防']
+
+       let bResult = brr.reduce((sum, value)=>{
+        sum += value
+        return sum
+       }, '')
+
+       console.log(bResult)
+
+
+
+       let cArr = [
+        {
+        name:'小明',
+        age:19 
+       },
+       {
+        name:'小泓',
+        age:20 
+       },
+       {
+        name:'小两',
+        age:21 
+       }
+        ]
+
+        let cResult = cArr.reduce((sum, value)=>{
+            return sum += value.age
+            // return sum
+        },0)
+        console.log('-年龄和',cResult)
+
+
+
+        let dArr = [
+        {
+        name:'小明',
+        age:19 
+       },
+       {
+        name:'小泓',
+        age:20 
+       },
+       {
+        name:'小两',
+        age:21 
+       },
+       {
+        name:'小zhang',
+        age:10 
+       },
+        ]
+
+        let dResult = dArr.reduce((sum, item)=> {
+            if(item.age < 20){
+                sum += item.age
+            }
+            return sum
+        },0)
+        console.log('小于20岁的年龄和',dResult)
+
+
+
+        //使用展开+reduce求和
+        function sum(...arr){
+            return arr.reduce((sum, item)=>{
+                sum += item
+                return sum
+            })
+        }
+
+        let test = sum(1,2,3,4)
+        console.log('ces',test)
+
+    </script>
+
+
+</body>
+</html>
+
