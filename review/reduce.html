@@ -96,7 +96,8 @@
 
 
         //使用展开+reduce求和
-        function sum(...arr){
+        function sum(...arr){ // ...表示输入参数数量不确定
+            console.log('-->',arr) // --> Array(4)
             return arr.reduce((sum, item)=>{
                 sum += item
                 return sum
