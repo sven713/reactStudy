@@ -17,17 +17,32 @@
 <body>
 <!-- 容器 -->
     <div id="test"></div>
-    <script src="../js/react.development.js"></script>
+    <!-- <script src="../js/react.development.js"></script>
     <script src="../js/react-dom.development.js"></script>
-    <script src="../js/babel.min.js"></script>
+    <script src="../js/babel.min.js"></script> -->
 
-    <script type="text/babel">
+    <script type="text/javascript">
 
-        function sum(numbers){
-            console.log(numbers) // Array
+        // function sum(numbers){
+        //     console.log(numbers) // Array
+        // }
+
+        // sum([1,2,3])
+
+        let preson = {
+            name:'tom',
+            age:'19'
         }
+        // let person2 = preson
 
-        sum([1,2,3])
+        let person2 = {...preson} // 展开符号,复制对象
+
+        preson.age ='12'
+        console.log('p',preson)
+        console.log('p2',person2)
+
+        let p3 = {...preson, name:'jack', address :'沈阳'} //复制对象的同时,修改对象的属性
+        console.log('p3',p3)
 
     </script>
 
