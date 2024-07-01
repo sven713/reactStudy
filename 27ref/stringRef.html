@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ref study stringRef</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component {
+
+            showData=()=>{
+                console.log(this.refs)
+                const {ipt1} = this.refs
+                console.log('!!',ipt1)
+                alert(ipt1.value)
+            }
+
+            showData2=()=> {
+                const {ipt2} = this.refs
+                alert(ipt2.value)
+            }
+
+            render() {
+                return (
+
+                    <div>
+                        <input ref='ipt1' placeholder='点击显示输入内容' />&nbsp;
+                        <button onClick={this.showData}>点击显示左侧内容</button>&nbsp;
+                        <input ref='ipt2' placeholder='失去焦点输入内容' onBlur={this.showData2}/>
+                    </div>
+                )
+            }
+        }
+
+        
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
