@@ -29,18 +29,19 @@
         // 创建组件
        class MyComponent extends React.Component {
 
+        constructor(){ // 构造器,能不写就不写
 
+        }
         // 标签属性进行类型,必要性限制
         static propTypes = {
-        name:PropTypes.string.isRequired,
-        age:PropTypes.number,
-        speak : PropTypes.func
+            name:PropTypes.string.isRequired,
+            age:PropTypes.number
        }
 
        // 指定属性的默认值
        static defaultProps = {
-        gender:'不那女',
-        age:1
+            gender:'不那女',
+            age:1
        }
 
         render(){
@@ -66,15 +67,8 @@
         gender: '女'
        }
 
-       ReactDOM.render(<MyComponent  name='老刘' age={22} speak={speak}/>, document.getElementById('test'))
-       ReactDOM.render(<MyComponent name='d1d'  gender='男'/>, document.getElementById('test2'))
-    //    ReactDOM.render(<MyComponent name='d3d' age='22' gender='男'/>, document.getElementById('test3'))
-         ReactDOM.render(<MyComponent {...person}/>, document.getElementById('test3'))
-
-      
-         function speak(){
-            console.log('我说话了')
-         }
+       ReactDOM.render(<MyComponent  name='老刘' age={22}/>, document.getElementById('test'))
+   
 
     </script>
 

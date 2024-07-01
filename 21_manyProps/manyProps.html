@@ -30,7 +30,7 @@
 
         render(){
             const { age, gender,name} = this.props
-            this.props.name = 'jack'
+            // this.props.name = 'jack' // 报错,因为props只读
             return (<ul>
                     <li>姓名:{name}</li>
                     <li>年龄:{age+1}</li>
