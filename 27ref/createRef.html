@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>createRef</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component {
+            myRef = React.createRef() //createRef 一对一,专人专用
+            myRef2 = React.createRef() // createRef  是react推荐写法
+
+            showData=()=>{
+                console.log(this.myRef)
+                alert(this.myRef.current.value)
+                // alert(this.input1.value)
+            }
+
+            showData2=()=> {
+                
+                alert(this.myRef2.current.value)
+            }
+
+            render() {
+                return (
+
+                    <div>
+                        <input ref={this.myRef} placeholder='点击显示输入内容' />&nbsp;
+                        <button onClick={this.showData}>点击显示左侧内容</button>&nbsp;
+                        <input onBlur={this.showData2} ref={this.myRef2} placeholder='失去焦点显示输入内容' />&nbsp;
+                    </div>
+                )
+            }
+        }
+
+        
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
