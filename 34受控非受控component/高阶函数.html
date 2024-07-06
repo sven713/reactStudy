@@ -38,20 +38,10 @@
                 event.preventDefault() // 阻止提交表单,用接口提交
             }
 
-            // saveName =(event)=>{
-            //     console.log(event.target.value)
-            //     this.setState({
-            //         uName: event.target.value
-            //     })
-            // }
-
-            // savePwd =(event)=>{
-            //     console.log(event.target.value)
-            //     this.setState({
-            //         pwd: event.target.value
-            //     })
-            // }
-
+            // 高阶函数: 参数为函数 or 返回值为函数
+            // eg: setTimeout; 这里的saveFormdata
+            // 函数的科里化: 函数继续调用函数,实现多次接收参数,最后统一处理
+            // 应用: saveFormdata
             saveFormdata =(dataType)=> {
                 console.log(dataType)
 
