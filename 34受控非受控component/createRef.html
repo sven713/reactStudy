@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>受控组件</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <!-- 容器 1-->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component {
+            // 弹窗提示,且不跳走(为了更好的用户体验)
+
+            submitAction =(event)=> {
+                console.log(11111)
+                // event.preventDefault()
+                const {ipt1, ipt2} = this
+                console.log('2222',ipt1.value)
+                alert(`用户名:${ipt1.value} 密码:${ipt2.value}`)
+                // debugger
+                event.preventDefault() // 阻止提交表单,用接口提交
+            }
+
+            render() {
+                return (
+                  <form  onSubmit={this.submitAction}>  
+                    <input type="text" placeholder='请输入用户名' ref={c => this.ipt1 = c} name='name'/>
+                    <input type="password" placeholder='请输入密码' ref={c => this.ipt2 = c} name='pwd'/>
+                    <button >登录</button>
+                    </form>
+                )
+            }
+        }
+
+        
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
