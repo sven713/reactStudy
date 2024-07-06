@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>高阶函数</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <!-- 容器 1-->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component {
+            // 弹窗提示,且不跳走(为了更好的用户体验)
+            // 非受控组件: 现用现取
+            // 受控组件: 组件值存储在state里面(推荐, 可以少用ref)
+
+            submitAction =(event)=> {
+                console.log(11111)
+                
+                const {pwd, name} = this.state
+                
+                alert(`用户名:${name} 密码:${pwd}`)
+
+                event.preventDefault() // 阻止提交表单,用接口提交
+            }
+
+            // 高阶函数: 参数为函数 or 返回值为函数
+            // eg: setTimeout; 这里的saveFormdata
+            // 函数的科里化: 函数继续调用函数,实现多次接收参数,最后统一处理
+            // 应用: saveFormdata
+            saveFormdata =(dataType, event)=> {
+                console.log(dataType)
+
+                this.setState({
+                        [dataType] : event.target.value
+                    })
+            }
+
+            render() {
+                return (
+                  <form  onSubmit={this.submitAction}>  
+                    <input onChange={(event)=>{this.saveFormdata('name', event)}} type="text" placeholder='请输入用户名' name='name'/>
+                    <input onChange={(event)=>{this.saveFormdata('pwd', event)}} type="password" placeholder='请输入密码' name='pwd'/>
+                    <button >登录</button>
+                    </form>
+                )
+            }
+        }
+
+        
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
