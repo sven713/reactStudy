@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>life</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component {
+            
+            state={
+                opcacy : 0.4
+            }
+
+            removeComp=()=> {
+                // clearInterval(this.timer)
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+
+            changeOpacity=()=>{
+                this.timer = setInterval(() => {
+                    let old = this.state.opcacy
+                     old -= 0.1
+                    if(old <= 0) old = 1
+                    this.setState({
+                        opcacy: old
+                    })
+                }, 200);
+
+
+            }
+
+            componentDidMount(){
+                console.log('@')
+                this.changeOpacity()
+            }
+
+            componentWillUnmount(){ // m 别大写!!!!
+                clearInterval(this.timer)
+            }
+
+            render() {
+                // setInterval(() => {
+                //     let old = this.state.opcacy
+                //      old -= 0.1
+                //     if(old <= 0) old = 1
+                //     this.setState({
+                //         opcacy: old
+                //     })
+                // }, 100);
+                console.log('rend')
+                return (
+                    
+                  <div>
+                    <h2 style={{opacity: this.state.opcacy}}>react学不会怎么办?</h2>
+                    <button onClick={this.removeComp}>移除组件</button>
+                    <button onClick={this.changeOpacity}>开始</button>
+                </div>
+                )
+            }
+        }
+
+        
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
