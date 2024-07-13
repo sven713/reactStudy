@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>life</title>
+</head>
+
+<style>
+
+</style>
+
+
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class A extends React.Component {
+            
+            state={
+                carName : '奔驰'
+            }
+
+            changeCar=()=>{
+                this.setState({
+                    carName: '奥拓'
+                })
+            }
+
+            componentDidMount(){
+                
+            }
+
+            componentWillUnmount(){ // m 别大写!!!!
+
+            }
+
+            render() {
+                return (
+                  <div>
+                    <h2 style={{opacity: this.state.opcacy}}>A父组件</h2>
+                    <button onClick={this.changeCar}>换车</button>
+                    <B carName={this.state.carName}></B>
+                </div>
+                )
+            }
+        }
+
+        class B extends React.Component {
+
+            componentWillReceiveProps(props){
+                console.log('B----componentWillReceiveProps',props)
+            }
+
+            // 控制组件更新的阀门
+            shouldComponentUpdate(){
+                console.log('B----shouldComponentUpdata')
+                return false
+            }
+
+            render(){
+                return (
+                    <div>
+                        B组件(子组件)
+                        <h1>车名:{this.props.carName}</h1>    
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<A />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
