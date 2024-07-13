@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>life</title>
+</head>
+
+<style>
+.newsBox {
+    height: 150px;
+    overflow: auto;
+    background-color: skyblue;
+}
+
+.news {
+    height: 30px;
+}
+</style>
+
+
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Demo extends React.Component {
+
+            state = {
+                opcacy: 0.4
+            }
+
+
+            componentDidMount() {
+
+            }
+
+
+            render() {
+
+                return (
+
+                    <div className='newsBox'>
+                        <div className='news'>新闻7</div>
+                        <div className='news'>新闻6</div>
+                        <div className='news'>新闻5</div>
+                        <div className='news'>新闻4</div>
+                        <div className='news'>新闻3</div>
+                        <div className='news'>新闻2</div>
+                        <div className='news'>新闻1</div>
+                    </div>
+                )
+            }
+        }
+
+
+
+        ReactDOM.render(<Demo />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
