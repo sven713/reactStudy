@@ -49,12 +49,21 @@
                 }, 1000);
             }
 
+            getSnapshotBeforeUpdate(){
+                return this.refs.list.scrollHeight
+            }
+
+            componentDidUpdate(preProps, preState, height){
+                console.log('hh',height)
+                this.refs.list.scrollTop += this.refs.list.scrollHeight - height
+            }
+
 
             render() {
 
                 return (
 
-                    <div className='newsBox'>{
+                    <div className='newsBox' ref='list'>{
                         // forEach 不行!!!!
                         this.state.newsList.map((item)=> {
                             return <div className='news'>{item}</div>
