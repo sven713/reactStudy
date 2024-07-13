@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>diffing</title>
+</head>
+
+<style>
+    .newsBox {
+        height: 150px;
+        overflow: auto;
+        background-color: skyblue;
+    }
+
+    .news {
+        height: 30px;
+    }
+</style>
+
+
+<body>
+    <!-- 容器 -->
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class PersonsComp extends React.Component {
+
+            state = {
+                personArr: [
+                    {
+                        name: '校长',
+                        age: 16,
+                        id:1
+                    }, {
+                        name: '小王',
+                        age: 18,
+                        id:2
+                    }]
+            }
+
+
+            componentDidMount() {
+                
+            }
+
+            addPerson=()=>{
+                const { personArr } = this.state
+                    const newItem = {
+                        name:'李四',
+                        age:20,
+                        id: personArr.length + 1
+                    }
+                    this.setState({
+                        personArr: [newItem, ...personArr]
+                    })
+            }
+
+
+            render() {
+
+                return (
+
+                    <div className='' >
+                        <button onClick={this.addPerson}>添加新人</button>
+                        {
+                        // forEach 不行!!!!
+                        this.state.personArr.map((item, index) => {
+                            return <div key={index}>姓名:{item.name}---年齡:{item.age}</div>
+                        }) 
+                    }
+                    </div>
+                )
+            }
+        }
+
+
+
+        ReactDOM.render(<PersonsComp />, document.getElementById('test'))
+
+    </script>
+
+
+</body>
+
+</html>
