@@ -38,29 +38,29 @@
                     {
                         name: '校长',
                         age: 16,
-                        id:1
+                        id: 1
                     }, {
                         name: '小王',
                         age: 18,
-                        id:2
+                        id: 2
                     }]
             }
 
 
             componentDidMount() {
-                
+
             }
 
-            addPerson=()=>{
+            addPerson = () => {
                 const { personArr } = this.state
-                    const newItem = {
-                        name:'李四',
-                        age:20,
-                        id: personArr.length + 1
-                    }
-                    this.setState({
-                        personArr: [newItem, ...personArr]
-                    })
+                const newItem = {
+                    name: '新人',
+                    age: 20,
+                    id: personArr.length + 1
+                }
+                this.setState({
+                    personArr: [newItem, ...personArr]
+                })
             }
 
 
@@ -70,12 +70,24 @@
 
                     <div className='' >
                         <button onClick={this.addPerson}>添加新人</button>
+                        <h2>index作为key</h2>
                         {
-                        // forEach 不行!!!!
-                        this.state.personArr.map((item, index) => {
-                            return <div key={index}>姓名:{item.name}---年齡:{item.age}</div>
-                        }) 
-                    }
+                            // forEach 不行!!!!
+                            this.state.personArr.map((item, index) => {
+                                return <div key={index}>姓名:{item.name}---年齡:{item.age}
+                                    <input/>
+                                    </div>
+                            })
+                        }
+                        ---------------
+                        <h2>id作为key</h2>
+                        {
+                            this.state.personArr.map((item, index) => {
+                                return <div key={item.id}>姓名:{item.name}---年齡:{item.age}
+                                    <input/>
+                                    </div>
+                            })
+                        }
                     </div>
                 )
             }
