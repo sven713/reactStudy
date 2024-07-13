@@ -34,12 +34,19 @@
         class Demo extends React.Component {
 
             state = {
-                opcacy: 0.4
+                newsList:[]
             }
 
 
             componentDidMount() {
-
+                setInterval(() => {
+                    const {newsList} = this.state
+                    const newItem = '新闻' + (newsList.length + 1)
+                    this.setState({
+                        newsList:[newItem,...newsList]
+                    })
+                    console.log(111)
+                }, 1000);
             }
 
 
@@ -47,14 +54,12 @@
 
                 return (
 
-                    <div className='newsBox'>
-                        <div className='news'>新闻7</div>
-                        <div className='news'>新闻6</div>
-                        <div className='news'>新闻5</div>
-                        <div className='news'>新闻4</div>
-                        <div className='news'>新闻3</div>
-                        <div className='news'>新闻2</div>
-                        <div className='news'>新闻1</div>
+                    <div className='newsBox'>{
+                        // forEach 不行!!!!
+                        this.state.newsList.map((item)=> {
+                            return <div className='news'>{item}</div>
+                        })
+                    }
                     </div>
                 )
             }
